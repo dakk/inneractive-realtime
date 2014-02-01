@@ -10,7 +10,7 @@ Installation
 
 Put the sources on a public directory in your server, create a file named "log.txt" in the same directory, and give it read/write permissions.
 
-Go to the inner-active.org publisher dashboard, click on demand control, and in 'Tracking' section puts these urls:
+Go to the inner-active.org publisher dashboard, click on 'Demand Control', and in 'Tracking' section put these urls:
 
 ```
 http://$yourserverdir$/log.php?type=imp&ip=$ip$&timestamp=$timestamp$&networkName=$networkName$&country=$country$&city=$city$&os=$os$&appname=$appname$&age=$age$&model=$model$&brand=$brand$
@@ -20,7 +20,7 @@ http://$yourserverdir$/log.php?type=imp&ip=$ip$&timestamp=$timestamp$&networkNam
 http://$yourserverdir$/log.php?type=click&ip=$ip$&timestamp=$timestamp$&networkName=$networkName$&country=$country$&city=$city$&os=$os$&appname=$appname$&age=$age$&model=$model$&brand=$brand$
 ```
 
-For impressions and click respectly.
+For impressions and clicks respectively.
 
 
 
