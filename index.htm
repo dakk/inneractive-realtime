@@ -76,6 +76,17 @@
 		var newImp = new Array();
 		var iA = 0;
 		
+
+		function arrayMax (a)
+		{
+			var i = 0;
+			var m = 0;
+			for (i=0; i < a.length; i++)
+				if (a[i] > m) m = a[i];
+			return m;
+		}
+
+
 		function funGraph (ctx, func, color, thick, step) 
 		{
 			ctx.beginPath();
@@ -107,12 +118,12 @@
 				{
 					if (x < 0 || x > (newImp.length)) return 0;
 					return newImp [x];
-				}, "rgb(11,153,11)", 1, 5); 
+				}, "rgb(11,153,11)", 1, 100.0 / arrayMax(newImp)); 
 			funGraph(ctx, function (x)
 				{
 					if (x < 0 || x > (activeUsers.length)) return 0;
 					return activeUsers [x];
-				}, "rgb(66,44,255)", 1, 7);
+				}, "rgb(66,44,255)", 1, 100.0 / arrayMax(activeUsers));
 		}
 
 
@@ -174,7 +185,7 @@
 		}
 
 	
-		window.setInterval(update, 20000);	
+		window.setInterval(update, 30000);	
 		update ();
 		update ();
 	</script>
