@@ -1,7 +1,7 @@
-Realtime Inner-active.org Logger
+Unofficial Realtime Inner-active.org Logger
 ================================
 
-This is a realtime logger for inner-active.org adv service, that use jQuery, php and Bootstrap. Try a [Demo](http://sagregna.it/advlog).
+This is an unofficial realtime logger for inner-active.org adv service, that use jQuery, php and Bootstrap. Try a [Demo](http://sagregna.it/advlog).
 
 ![](screenshoot/1.png)
 
