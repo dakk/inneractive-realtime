@@ -10,7 +10,6 @@
     <title>Adv Log</title>
 
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/pages.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -70,7 +69,6 @@
 		var firstRun = true;
 		var oldData = null;
 
-
 		function valueDiff (old, cur)
 		{
 			if (cur > old)
@@ -83,7 +81,6 @@
 
 		function update ()
 		{
-			//http://sagregna.it/advlog/log_json.php
 			$.getJSON ('log_json.php', {})
 				.done (function (data) 
 				{
@@ -122,8 +119,9 @@
 					console.log( "Request Failed: " + err );
 				});
 		}
-		
-		window.setInterval(update, 5000);	
+
+	
+		window.setInterval(update, 10000);	
 		update ();
 		update ();
 	</script>
