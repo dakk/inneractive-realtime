@@ -24,4 +24,9 @@ For impressions and clicks respectively.
 
 
 
+Notes
+-----
+
+This is an unofficial software.
+
 
