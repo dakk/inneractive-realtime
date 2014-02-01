@@ -5,6 +5,14 @@ This is an unofficial realtime logger for inner-active.org adv service, that use
 
 ![](screenshoot/1.png)
 
+
+Features
+--------
+* Graph rendering
+* Apps stats
+* Global stats
+* Active users
+
 Installation
 ------------
 
