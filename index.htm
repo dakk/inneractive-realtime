@@ -48,6 +48,10 @@
     </div>
 
     <div class="container" style="height: 100%">
+		<div align="center">
+			<canvas id="graph" width="1000" height="100"></canvas>
+		</div>
+		<br>
 		<table class='table table-bordered table-condensed table-striped' id='apps'>
 		</table>
 		<!--
@@ -68,6 +72,49 @@
 	<script>
 		var firstRun = true;
 		var oldData = null;
+		var activeUsers = new Array();
+		var newImp = new Array();
+		var iA = 0;
+		
+		function funGraph (ctx, func, color, thick, step) 
+		{
+			ctx.beginPath();
+			ctx.lineWidth = thick;
+			ctx.strokeStyle = color;
+
+			for (var i=0;i<=iA;i++) 
+			{	
+				var xx = i * (1000.0 / iA);
+				var yy = func (i) * step;
+				if (i==0)
+					ctx.moveTo(xx,100-yy);
+			 	else
+					ctx.lineTo(xx,100-yy);
+			}
+			ctx.stroke();
+		}
+
+		function drawGraph() 
+		{
+			var canvas = document.getElementById("graph");
+			if (null==canvas || !canvas.getContext) return;
+
+			canvas.width = canvas.width;
+
+			var ctx=canvas.getContext("2d");
+
+			funGraph(ctx, function (x)
+				{
+					if (x < 0 || x > (newImp.length)) return 0;
+					return newImp [x];
+				}, "rgb(11,153,11)", 1, 5); 
+			funGraph(ctx, function (x)
+				{
+					if (x < 0 || x > (activeUsers.length)) return 0;
+					return activeUsers [x];
+				}, "rgb(66,44,255)", 1, 7);
+		}
+
 
 		function valueDiff (old, cur)
 		{
@@ -90,6 +137,11 @@
 						return;
 					}
 
+					activeUsers[iA] = data.activeUsers;
+					newImp[iA] = (data.entriesToday - oldData.entriesToday);
+					iA+=1;
+
+
 					$('#entries').html (valueDiff (oldData.entries, data.entries));
 					$('#entriesToday').html (valueDiff (oldData.entriesToday, data.entriesToday));
 					$('#activeUsers').html (valueDiff (oldData.activeUsers, data.activeUsers));
@@ -111,6 +163,7 @@
 
 					$('#apps').html (apptab);
 
+					drawGraph ();
 					oldData = data;
 				})
 				.fail (function (jqxhr, textStatus, error) 
@@ -121,7 +174,7 @@
 		}
 
 	
-		window.setInterval(update, 30000);	
+		window.setInterval(update, 20000);	
 		update ();
 		update ();
 	</script>
